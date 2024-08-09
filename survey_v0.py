@@ -11,6 +11,7 @@ import matplotlib.pyplot as plt
 import matplotlib
 import numpy as np
 import pickle
+import tempfile
 import seaborn as sns
 from sklearn.cluster import KMeans
 from sklearn.mixture import GaussianMixture as GMM
@@ -902,6 +903,8 @@ class SurveyEncoder(object):
                                  columns = 'cluster',
                                  aggfunc=np.mean)
             st.write(tbl)
+            
+    
         
         
         
@@ -921,8 +924,9 @@ class SurveyEncoder(object):
             
     def load_mapping(self,filename):
         ## load the dictionary that corresponds to response_map and type
-        st.write(filename)
-        d = pickle.load(open(filename,'rb'))
+        
+        
+        d = pickle.load(filename)
         
         ## look at all of the key:cols in response_sets and determine if 
         ## the response_set needs to be mapped
@@ -1005,9 +1009,7 @@ if select == options[0]:
             if not se.mapped_encoder:
                 mapping = st.file_uploader("Select a mapping.",type="pkl")
                 if mapping is not None:
-                    st.write(mapping.__dict__)
-                    st.write(mapping._file_urls)
-                    se.load_mapping(mapping.name)
+                    se.load_mapping(mapping)
             if se.mapped_encoder:
                 st.write("Survey Encoder has been imported.")
                 
