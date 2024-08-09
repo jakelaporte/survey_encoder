@@ -1006,6 +1006,7 @@ if select == options[0]:
                 mapping = st.file_uploader("Select a mapping.",type="pkl")
                 if mapping is not None:
                     st.write(mapping.__dict__)
+                    st.write(mapping['_file_urls'])
                     se.load_mapping(mapping.name)
             if se.mapped_encoder:
                 st.write("Survey Encoder has been imported.")
