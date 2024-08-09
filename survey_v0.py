@@ -921,6 +921,7 @@ class SurveyEncoder(object):
             
     def load_mapping(self,filename):
         ## load the dictionary that corresponds to response_map and type
+        st.write(filename)
         d = pickle.load(open(filename,'rb'))
         
         ## look at all of the key:cols in response_sets and determine if 
