@@ -12,6 +12,5 @@ scipy
 seaborn
 plotly
 scikit-learn
-tkinter
 
 
