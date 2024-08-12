@@ -919,8 +919,9 @@ class SurveyEncoder(object):
         for key, val in self.response_sets.items():
             self.response_map[key]=self.dict[val[0]]
         self.response_map['type']=self.type
-        with open(filename, 'wb') as f:
-            pickle.dump(self.response_map, f)
+        st.download_button("Download Mapping",
+                           data = pickle.dumps(self.response_map),
+                           file_name = filename)
             
     def load_mapping(self,filename):
         ## load the dictionary that corresponds to response_map and type
