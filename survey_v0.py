@@ -896,13 +896,16 @@ class SurveyEncoder(object):
         st.write(f"Pivot Table - Inside: {st.session_state.pvt_val}")
         st.write(f"Columns: Clusters {sorted(selected_cols)}")
         st.write(f"Rows: Question(s): {sorted(selected_rows)}")
-        if len(st.session_state.pvt_row)>0 and len(st.session_state.pvt_col)>0:
-            df=df[df['cluster'].isin(selected_cols)]
-            tbl = df.pivot_table(values=value,
-                                 index=selected_rows,
-                                 columns = 'cluster',
-                                 aggfunc='mean')
-            st.write(tbl)
+        try:
+            if len(st.session_state.pvt_row)>0 and len(st.session_state.pvt_col)>0:
+                df=df[df['cluster'].isin(selected_cols)]
+                tbl = df.pivot_table(values=value,
+                                     index=selected_rows,
+                                     columns = 'cluster',
+                                     aggfunc='mean')
+                st.write(tbl)
+        except:
+            pass
             
     
         
