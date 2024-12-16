@@ -901,7 +901,7 @@ class SurveyEncoder(object):
             tbl = df.pivot_table(values=value,
                                  index=selected_rows,
                                  columns = 'cluster',
-                                 aggfunc=np.mean)
+                                 aggfunc='mean')
             st.write(tbl)
             
     
