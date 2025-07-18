@@ -986,7 +986,14 @@ options = ["Files",
 select = st.sidebar.radio(label = "Select the tool:",
                       options = options,
                       key='sb_select')
-
+body = "#### Video: [Step 1 - Load data](https://youtu.be/DO_ISzSvMIE)"
+st.sidebar.markdown(body)
+body = "#### Video: [Step 2 - Check out your data](https://youtu.be/ovkxzvYeGOg)"
+st.sidebar.markdown(body)
+body = "#### Video: [Step 3 - Cluster Respondents](https://youtu.be/C3NqjHwb65Y)"
+st.sidebar.markdown(body)
+body = "#### Video: [Step 4 - Analyze Cluster]( https://youtu.be/twTz861WH88)"
+st.sidebar.markdown(body)
 
 
 if select == options[0]:
