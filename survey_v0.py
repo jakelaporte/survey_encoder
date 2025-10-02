@@ -843,6 +843,7 @@ class SurveyEncoder(object):
         if hasattr(self, 'cluster_size') and hasattr(self, 'cluster_stats'):
             clusters = np.arange(self.clusters)
             df = self.df.copy()
+            kdata = self.kdata.copy()
             df['cluster']=self.cluster_assignments.values
             df=df.replace('nan',np.nan)
             label = ""
@@ -856,6 +857,7 @@ class SurveyEncoder(object):
 
             st.markdown(label)
             st.write(df)
+            st.write(kdata)
             
     def pivot_analysis(self):
         def row_change():
@@ -1179,4 +1181,5 @@ if select == options[4]:
 
 
     
+
 
